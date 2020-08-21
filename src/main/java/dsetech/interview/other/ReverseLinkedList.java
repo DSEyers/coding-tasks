@@ -6,7 +6,7 @@ class LinkedList {
 
     static class Node {
 
-        String data;
+        final String data;
         Node next;
 
         Node(String d) {
@@ -19,7 +19,7 @@ class LinkedList {
     Node reverse(Node node) {
         Node prev = null;
         Node current = node;
-        Node next = null;
+        Node next;
         while (current != null) {
             next = current.next;
             current.next = prev;
@@ -40,14 +40,14 @@ class LinkedList {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
-        list.head = new Node("A");
-        list.head.next = new Node("B");
-        list.head.next.next = new Node("C");
+        head = new Node("A");
+        head.next = new Node("B");
+        head.next.next = new Node("C");
 
         System.out.println("Given Linked list");
         list.printList(head);
         head = list.reverse(head);
-        System.out.println("");
+        System.out.println();
         System.out.println("Reversed linked list ");
         list.printList(head);
     }

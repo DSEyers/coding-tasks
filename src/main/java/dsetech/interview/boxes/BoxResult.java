@@ -5,6 +5,15 @@ public class BoxResult {
     int boxesMedium = 0;
     int boxesSmall = 0;
 
+    public BoxResult() {
+    }
+
+    public BoxResult(int boxesLarge, int boxesMedium, int boxesSmall) {
+        this.boxesLarge = boxesLarge;
+        this.boxesMedium = boxesMedium;
+        this.boxesSmall = boxesSmall;
+    }
+
     public int getBoxesLarge() {
         return boxesLarge;
     }

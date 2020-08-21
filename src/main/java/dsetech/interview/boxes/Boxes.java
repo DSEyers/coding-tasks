@@ -1,7 +1,5 @@
 package dsetech.interview.boxes;
 
-import java.lang.reflect.Array;
-
 public class Boxes {
 
     // Large box holds 20
@@ -17,19 +15,18 @@ public class Boxes {
     }
 
     public static void main(String[] args) {
-        final Boxes boxes = new Boxes(52);
+        final Boxes boxes = new Boxes(48);
         boxes.getBoxResult();
 
     }
 
     private BoxResult getBoxResult() {
-        int bigBoxes = totalItemsToStore / BOX_SIZE_LARGE;
-        int mediumBoxes = (totalItemsToStore - bigBoxes * BOX_SIZE_LARGE) / BOX_SIZE_MEDIUM;
-        int smallBoxes = ((totalItemsToStore - bigBoxes * BOX_SIZE_LARGE - mediumBoxes * BOX_SIZE_MEDIUM) + 4) / BOX_SIZE_SMALL;
 
-        System.out.println(String.format("big=%d, med=%d, small=%d", bigBoxes, mediumBoxes, smallBoxes));
+        final int bigBoxes = totalItemsToStore / BOX_SIZE_LARGE;
+        final int mediumBoxes = (totalItemsToStore - bigBoxes * BOX_SIZE_LARGE) / BOX_SIZE_MEDIUM;
+        final int smallBoxes = ((totalItemsToStore - bigBoxes * BOX_SIZE_LARGE - mediumBoxes * BOX_SIZE_MEDIUM) + (BOX_SIZE_SMALL - 1)) / BOX_SIZE_SMALL;
 
-
-        return null;
+        System.out.printf("big=%d, med=%d, small=%d%n", bigBoxes, mediumBoxes, smallBoxes);
+        return new BoxResult(bigBoxes, mediumBoxes, smallBoxes);
     }
 }
